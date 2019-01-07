@@ -1,1 +1,44 @@
 # WORK IN PROGRESS #
+
+
+
+# Robot API Documentation
+
+## Introduction
+Your robot's software has to do a few things:
+ - Receive commands from users
+ - Receive chat messages from users
+ - Send out a video and audio stream
+ - Tell the server it is ready to go LIVE
+
+All of the communication between your robot and LetsRobot's servers is done over HTTP. To enable realtime, bi-directional communication between your robot and the servers we use [socket.io](https://socket.io) for the data messages and for the audio and video we use an [MPEG](https://nl.wikipedia.org/wiki/MPEG) stream.
+
+## URLs
+http://letsrobot.tv/get_websocket_relay_host/<camera-id>
+http://letsrobot.tv/get_video_port/<camera-id>
+http://letsrobot.tv/get_control_host_port/<robot-id>?version=2
+http://letsrobot.tv/get_chat_host_port/<robot-id>
+https://api.letsrobot.tv/api/v1/robots/<robot-id>
+http://<relay-host>:<video-port>/<streamkey>/<width>/<height>/
+http://letsrobot.tv:8022
+
+## Receiving commands
+GET control host port
+Connect to socket
+Emit robot id
+Subscribe to events
+Handle events
+
+## Receiving chat messages
+text
+
+## Streaming audio and video
+GET camera id
+GET relay host
+GET video port
+MPEG stream to URL using FFmpeg
+
+## Going LIVE
+Connect to socket
+Emit robot id
+Send video status signal
