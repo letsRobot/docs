@@ -31,7 +31,7 @@ https://letsrobot.tv/get_control_host_port/{robot-id}
 
 Which will give us a JSON response:
 
-```JSON
+```
 { 
 	host: "control-host", 
 	port: control-host-port 
@@ -48,7 +48,7 @@ https://{control-host}:{control-host-port}
 
 Now that we have the URL we can connect to the socket:
 
-```Python
+```
 from socketIO_client import SocketIO, LoggingNamespace
 
 controlSocketIO = SocketIO(controlHost, controlHostPort, LoggingNamespace, transports='websocket')
@@ -56,13 +56,13 @@ controlSocketIO = SocketIO(controlHost, controlHostPort, LoggingNamespace, trans
 
 After connecting to the socket, our robot needs to identify itself:
 
-```Python
+```
 controlSocketIO.emit('robot_id', robotID)
 ```
 
 And we need to subscribe to the command event:
 
-```Python
+```
 controlSocket.on('command_to_robot', onHandleCommand)
 ```
 
@@ -70,7 +70,7 @@ controlSocket.on('command_to_robot', onHandleCommand)
 
 Every time a user clicks a control button on the website, we will receive a JSON message on the control socket:
 
-```JSON
+```
 {
 	robot_id: "robot-id",
 	command: "command",  
@@ -82,7 +82,7 @@ Every time a user clicks a control button on the website, we will receive a JSON
 
 Which we handle in our onHandleCommand function:
 
-```Python
+```
 def onHandleCommand(*args):
 	print('got command', args)
 	command = args['command']
@@ -102,7 +102,7 @@ https://letsrobot.tv/get_chat_host_port/{robot-id}
 
 Which will give us a JSON response:
 
-```JSON
+```
 {
  host: "chat-host",
  port: chat-host-port
@@ -110,6 +110,7 @@ Which will give us a JSON response:
 ```
 
 From which we can construct the chat socket's URL:
+
 ```
 https://{chat-host}:{chat-host-port}
 ```
@@ -118,7 +119,7 @@ https://{chat-host}:{chat-host-port}
 
 Now that we have the URL we can connect to the socket:
 
-```Python
+```
 from socketIO_client import SocketIO, LoggingNamespace
 
 chatSocket = SocketIO(chatHost, chatHostPort, LoggingNamespace, transports='websocket')
@@ -126,13 +127,13 @@ chatSocket = SocketIO(chatHost, chatHostPort, LoggingNamespace, transports='webs
 
 After connecting to the socket,  our robot needs to identify itself:
 
-```Python
+```
 chatSocket.emit('identify_robot_id', robotID)
 ```
 
 And we need to subscribe to the chat event:
 
-```Python
+```
 chatSocket.on('chat_message_with_name', onHandleChatMessage)
 ```
  
@@ -141,7 +142,7 @@ chatSocket.on('chat_message_with_name', onHandleChatMessage)
 
 Every time a user sends a chat message on the website, we will receive a JSON message on the chat socket:
 
-```JSON
+```
 {
 	name: "username",
 	message: "message",
@@ -156,7 +157,7 @@ Every time a user sends a chat message on the website, we will receive a JSON me
 
 Which we handle in our onHandleChatMessage function:
 
-```Python
+```
 def onHandleChatMessage(*args):
 	print('got chat message', args)
 	message = args['message']
@@ -252,7 +253,7 @@ To tell the server that your bot is ready to be marked as LIVE, we need to send 
 
 To do this, we first connect to the video status socket:
 
-```Python
+```
 from socketIO_client import SocketIO, LoggingNamespace
 
 videoStatusSocket = SocketIO('letsrobot.tv', 8022, LoggingNamespace, transports='websocket')
@@ -260,7 +261,7 @@ videoStatusSocket = SocketIO('letsrobot.tv', 8022, LoggingNamespace, transports=
 
 After connecting to the socket,  our robot needs to identify itself:
 
-```Python
+```
 videoStatusSocket.emit('identify_robot_id', robotID)
 ```
 
