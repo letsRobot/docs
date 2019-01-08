@@ -33,8 +33,8 @@ Which will give us a JSON response:
 
 ```
 { 
-	host: "control-host", 
-	port: control-host-port 
+  host: "control-host", 
+  port: control-host-port 
 }
 ```
 
@@ -72,11 +72,11 @@ Every time a user clicks a control button on the website, we will receive a JSON
 
 ```
 {
-	robot_id: "robot-id",
-	command: "command",  
-	user: "[empty|username]",  
-	key_position: "[empty|down|intermediate|up]",  
-	anonymous: [true|false]
+  robot_id: "robot-id",
+  command: "command",  
+  user: "[empty|username]",  
+  key_position: "[empty|down|intermediate|up]",  
+  anonymous: [true|false]
 }
 ```
 
@@ -84,8 +84,8 @@ Which we handle in our onHandleCommand function:
 
 ```
 def onHandleCommand(*args):
-	print('got command', args)
-	command = args['command']
+  print('got command', args)
+  command = args['command']
 ```
 
 ## Receiving chat messages
@@ -104,8 +104,8 @@ Which will give us a JSON response:
 
 ```
 {
- host: "chat-host",
- port: chat-host-port
+  host: "chat-host",
+  port: chat-host-port
 }
 ```
 
@@ -144,14 +144,14 @@ Every time a user sends a chat message on the website, we will receive a JSON me
 
 ```
 {
-	name: "username",
-	message: "message",
-    robot_id: "robot-id",
-    room: "roomname",
-    non_global: [true|false],
-    username_color: "#000000",
-    anonymous: [true|false],
-    _id: "6c46183223732206e58e27f9"
+  name: "username",
+  message: "message",
+  robot_id: "robot-id",
+  room: "roomname",
+  non_global: [true|false],
+  username_color: "#000000",
+  anonymous: [true|false],
+  _id: "6c46183223732206e58e27f9"
 }
 ```
 
@@ -159,8 +159,8 @@ Which we handle in our onHandleChatMessage function:
 
 ```
 def onHandleChatMessage(*args):
-	print('got chat message', args)
-	message = args['message']
+  print('got chat message', args)
+  message = args['message']
 ```
 
 ## Streaming audio and video
@@ -269,11 +269,11 @@ After identifying, we have to send the video status message every 30 seconds:
 
 ```Python
 videoStatusSocket.emit(
-	'send_video_status',
-	{
-		'send_video_process_exists': True,
-		'camera_id': cameraID
-	}
+  'send_video_status',
+  {
+    'send_video_process_exists': True,
+    'camera_id': cameraID
+  }
 );
 ```
 
