@@ -11,7 +11,8 @@ Your robot's software has to do a few things:
  - Send out a video and audio stream
  - Tell the server it is ready to go LIVE
 
-All of the communication between your robot and LetsRobot's servers is done over HTTP. We use [socket.io](https://en.wikipedia.org/wiki/Socket.IO) for the data messages, for the audio and video we use an [MPEG](https://nl.wikipedia.org/wiki/MPEG) stream.
+All of the communication between your robot and LetsRobot's servers is done over HTTP. 
+We use [socket.io](https://en.wikipedia.org/wiki/Socket.IO) for the data messages, for the audio and video we use an [MPEG](https://nl.wikipedia.org/wiki/MPEG) stream.
 
 In the examples we will be using code written in URL(Python) and use URL(ffmpeg) to stream audio and video.
 
