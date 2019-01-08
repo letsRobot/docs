@@ -13,6 +13,8 @@ Your robot's software has to do a few things:
 
 All of the communication between your robot and LetsRobot's servers is done over HTTP. To enable realtime, bi-directional communication between your robot and the servers we use [socket.io](https://socket.io) for the data messages. For the audio and video we use a [MPEG](https://nl.wikipedia.org/wiki/MPEG) stream.
 
+In the examples we will be using code written in URL.<Python> and use URL.<ffmpeg> to stream our audio and video.
+
 ## URLs
 http://letsrobot.tv/get_websocket_relay_host/<camera-id>
 http://letsrobot.tv/get_video_port/<camera-id>
