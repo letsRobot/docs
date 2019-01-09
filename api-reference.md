@@ -389,4 +389,28 @@ def sendChargeState():
 	chargeState = {'robot_id': robotID, 'charging': charging}
 	appServerSocketIO.emit('charge_state', chargeState)
 	print "charge state:", chargeState
+	
+	
+function sendMessage(command) {
+    aggregatorSocket.emit("custom_event", {
+        data: {"test":command},
+        robot_id: "18073947",//must be a string!
+    })
+}
+
+var canvas = document.getElementById("videoCanvas");
+
+/* The iFrame is blocking mouse events on the top right of the canvas, so let them through */
+var style = document.createElement("style");
+document.head.appendChild(style);
+style.sheet.insertRule(".robocasterPage-iframe-canvas {pointer-events: none;}", 0);
+
+canvas.addEventListener("mousedown", function(e){
+    var x = e.offsetX/canvas.offsetWidth;
+    var y = e.offsetY/canvas.offsetHeight;
+    var msg = `mousedown:${x.toFixed(5)}:${y.toFixed(5)}`;
+    console.log(msg);
+    sendMessage(msg);
+}); 
+
 ```
