@@ -15,8 +15,6 @@ All of the communication between your robot and [LetsRobot](https://letsrobot.tv
 
 In the examples we will use code written in [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29) and use [ffmpeg](https://en.wikipedia.org/wiki/FFmpeg) to stream audio and video. You can find an example of a fully implemented client [here](https://github.com/letsRobot/letsrobot).
 
-This documentation is aimed at developers wanting to create their own robot client, the official LetsRobot client is [here](https://github.com/letsRobot/letsrobot).
-
 You will need your robot-id, camera-id and streamkey, all of which you can find on your robot's settings page on your profile.
 
 ## Receiving control commands
