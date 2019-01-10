@@ -60,7 +60,7 @@ After connecting to the socket, our robot needs to identify itself:
 controlSocketIO.emit('robot_id', robotID)
 ```
 
-And we need to subscribe to the command event:
+And it needs to subscribe to the command event:
 
 ```
 controlSocket.on('command_to_robot', onHandleCommand)
@@ -125,13 +125,13 @@ from socketIO_client import SocketIO, LoggingNamespace
 chatSocket = SocketIO(chatHost, chatHostPort, LoggingNamespace, transports='websocket')
 ```
 
-After connecting to the socket,  our robot needs to identify itself:
+After connecting to the socket, our robot needs to identify itself:
 
 ```
 chatSocket.emit('identify_robot_id', robotID)
 ```
 
-And we need to subscribe to the chat event:
+And it needs to subscribe to the chat event:
 
 ```
 chatSocket.on('chat_message_with_name', onHandleChatMessage)
@@ -229,7 +229,7 @@ https://{relay-host}:{audio-host-port}/{streamkey}/{xres}/{yres}/
 
 ### Streaming video
 
-To stream video, we need to send MPEG1 encoded video in an MPEG-TS container to the video stream URL.
+To stream video, we need to send MPEG1 encoded video in an MPEG-TS container to the video stream's URL.
 
 To do this, we can use ffmpeg:
 
@@ -239,7 +239,7 @@ ffmpeg -f v4l2 -video_size {xres}x{yres} -i /dev/video{video-device-number} -f m
 
 ### Streaming audio
 
-To stream audio, we need to send MP2 encoded audio in an MPEG-TS container to the audio stream URL.
+To stream audio, we need to send MP2 encoded audio in an MPEG-TS container to the audio stream's URL.
 
 To do this, we can use ffmpeg:
 
@@ -249,7 +249,7 @@ ffmpeg -f alsa -ar 44100 -ac {audio-device-number} -i hw:{audio-device-number} -
 
 ## Going LIVE
 
-To tell the server that your bot is ready to be marked as LIVE, we need to send a video status signal.
+To tell the server that your bot is ready to be marked as LIVE, it needs to send a video status signal.
 
 To do this, we first connect to the video status socket:
 
@@ -259,13 +259,13 @@ from socketIO_client import SocketIO, LoggingNamespace
 videoStatusSocket = SocketIO('letsrobot.tv', 8022, LoggingNamespace, transports='websocket')
 ```
 
-After connecting to the socket,  our robot needs to identify itself:
+After connecting to the socket, our robot needs to identify itself:
 
 ```
 videoStatusSocket.emit('identify_robot_id', robotID)
 ```
 
-After identifying, we have to send the video status message every 30 seconds:
+After identifying, it has to send the video status message every 30 seconds:
 
 ```Python
 videoStatusSocket.emit(
