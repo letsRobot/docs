@@ -295,7 +295,7 @@ Which will give us this JSON response:
 { owner: "owner-name" }
 ```
 
-You can use this to determine wether commands are being sent by the owner.
+You can use this to determine wether commands and messages are being sent by the owner.
 
 ### Getting the robot's details and settings
 
