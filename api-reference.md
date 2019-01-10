@@ -322,7 +322,7 @@ Info about woot room goes here.
 
 ### Get WiFi settings
 
-Getting wifi settings goes here.
+Doesn't work because Ged is a bitch and doesn't want to give you your secret.
 
 ### Text-to-Speech
 
